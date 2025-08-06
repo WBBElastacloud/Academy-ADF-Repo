@@ -1,0 +1,9 @@
+{
+	"name": "wbb-academy-adf",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3ae9978a-1a39-4e34-8a04-9107f9580ff6",
+		"tenantId": "c670b60d-c4c7-4dec-8c1f-ac0da3e72bee"
+	}
+}
