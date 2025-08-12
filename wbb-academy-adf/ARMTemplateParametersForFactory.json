@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "wbb-academy-adf"
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "wbb-academy-sql-server.database.windows.net"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "wbb-academy-sql-db"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "will.bachelardbakal@elastacloud.com"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kv-academy-wbb.vault.azure.net/"
+		},
+		"RestAPIService1_properties_typeProperties_url": {
+			"value": "https://apilayer.net/api/countries?access_key=bebe759253b739d019d95190d1fb6a15"
+		},
+		"RestAPIService1_properties_typeProperties_userName": {
+			"value": "will.bachelardbakal@elastacloud.com"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://wbbacademystorage.dfs.core.windows.net/"
+		}
+	}
+}
