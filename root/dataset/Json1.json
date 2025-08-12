@@ -1,0 +1,53 @@
+{
+	"name": "Json1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "numverify",
+				"fileSystem": "landing"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"valid": {
+					"type": "boolean"
+				},
+				"number": {
+					"type": "string"
+				},
+				"local_format": {
+					"type": "string"
+				},
+				"international_format": {
+					"type": "string"
+				},
+				"country_prefix": {
+					"type": "string"
+				},
+				"country_code": {
+					"type": "string"
+				},
+				"country_name": {
+					"type": "string"
+				},
+				"location": {
+					"type": "string"
+				},
+				"carrier": {
+					"type": "string"
+				},
+				"line_type": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
