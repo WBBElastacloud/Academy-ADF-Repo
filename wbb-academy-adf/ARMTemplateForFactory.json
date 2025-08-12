@@ -333,11 +333,7 @@
 							"name": "sink1"
 						}
 					],
-					"transformations": [
-						{
-							"name": "flatten1"
-						}
-					],
+					"transformations": [],
 					"scriptLines": [
 						"source(output(",
 						"          valid as boolean,",
@@ -355,22 +351,7 @@
 						"     validateSchema: false,",
 						"     ignoreNoFilesFound: false,",
 						"     documentForm: 'documentPerLine') ~> source1",
-						"source1 foldDown(unroll(),",
-						"     mapColumn(",
-						"          valid,",
-						"          number,",
-						"          local_format,",
-						"          international_format,",
-						"          country_prefix,",
-						"          country_code,",
-						"          country_name,",
-						"          location,",
-						"          carrier,",
-						"          line_type",
-						"     ),",
-						"     skipDuplicateMapInputs: false,",
-						"     skipDuplicateMapOutputs: false) ~> flatten1",
-						"flatten1 sink(allowSchemaDrift: true,",
+						"source1 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     format: 'parquet',",
 						"     umask: 0022,",
