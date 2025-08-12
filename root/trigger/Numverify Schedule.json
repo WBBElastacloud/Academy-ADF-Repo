@@ -1,0 +1,29 @@
+{
+	"name": "Numverify Schedule",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "numverify_landing_raw",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Month",
+				"interval": 1,
+				"startTime": "2025-08-12T16:11:00",
+				"timeZone": "Romance Standard Time",
+				"schedule": {
+					"monthDays": [
+						1
+					]
+				}
+			}
+		}
+	}
+}
