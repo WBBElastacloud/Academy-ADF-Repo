@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "countries",
 				"folderPath": "numverify",
 				"fileSystem": "landing"
 			}
