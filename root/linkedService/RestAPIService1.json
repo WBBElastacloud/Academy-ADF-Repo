@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "RestService",
 		"typeProperties": {
-			"url": "https://numverify.com/",
+			"url": "https://apilayer.net/api/countries?access_key=bebe759253b739d019d95190d1fb6a15",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Basic",
 			"userName": "will.bachelardbakal@elastacloud.com",
