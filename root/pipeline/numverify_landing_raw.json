@@ -1,0 +1,7 @@
+{
+	"name": "numverify_landing_raw",
+	"properties": {
+		"description": "An ingestion pipeline that ingests data from the Numverify API in JSON format.",
+		"annotations": []
+	}
+}
