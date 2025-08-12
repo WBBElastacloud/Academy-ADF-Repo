@@ -4,7 +4,7 @@
 		"description": "An ingestion pipeline that ingests data from the Numverify API in JSON format.",
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Get API Data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
