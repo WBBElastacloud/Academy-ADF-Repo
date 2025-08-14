@@ -43,6 +43,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT MAX(timestamp)\nAS NewWatermarkvalue\nFROM table_with_timestamp",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
