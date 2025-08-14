@@ -144,7 +144,7 @@
 					"storedProcedureParameters": {
 						"MaxId": {
 							"value": {
-								"value": "\"value\": \"@{activity('LookupMaxId').output.firstRow.MaxId}\", \"type\": \"int32\"",
+								"value": "@int(activity('LookupMaxId').output.firstRow.MaxId)",
 								"type": "Expression"
 							},
 							"type": "Int32"
