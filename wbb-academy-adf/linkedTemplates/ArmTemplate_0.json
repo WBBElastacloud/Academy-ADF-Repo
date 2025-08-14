@@ -409,7 +409,7 @@
 								"type": "DatasetReference",
 								"parameters": {}
 							},
-							"firstRowOnly": false
+							"firstRowOnly": true
 						}
 					},
 					{
@@ -436,7 +436,7 @@
 								"type": "DatasetReference",
 								"parameters": {}
 							},
-							"firstRowOnly": false
+							"firstRowOnly": true
 						}
 					},
 					{
@@ -468,7 +468,7 @@
 							"source": {
 								"type": "AzureSqlSource",
 								"sqlReaderQuery": {
-									"value": "SELECT *\nFROM data_source_table\nWHERE LastModifytime > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' AND LastModifytime <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
+									"value": "SELECT *\nFROM table_with_timestamp\nWHERE timestamp > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' AND timestamp <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
 									"type": "Expression"
 								},
 								"queryTimeout": "00:06:00",
