@@ -884,6 +884,13 @@
 							"type": "PipelineReference"
 						},
 						"parameters": {}
+					},
+					{
+						"pipelineReference": {
+							"referenceName": "sql_landing_orchestration",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
 					}
 				],
 				"type": "ScheduleTrigger",
@@ -902,7 +909,8 @@
 				}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/numverify_landing_raw')]"
+				"[concat(variables('factoryId'), '/pipelines/numverify_landing_raw')]",
+				"[concat(variables('factoryId'), '/pipelines/sql_landing_orchestration')]"
 			]
 		},
 		{
