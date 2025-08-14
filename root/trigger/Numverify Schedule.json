@@ -9,6 +9,12 @@
 					"referenceName": "numverify_landing_raw",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "sql_landing_orchestration",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
