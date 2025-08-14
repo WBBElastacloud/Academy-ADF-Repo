@@ -17,6 +17,12 @@
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://kv-academy-wbb.vault.azure.net/"
 		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "wbb-academy-sql-server.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "wbb-academy-sql-db"
+		},
 		"RestAPIService1_properties_typeProperties_url": {
 			"value": "https://apilayer.net/api/countries?access_key=bebe759253b739d019d95190d1fb6a15"
 		},
@@ -31,12 +37,6 @@
 		},
 		"SqlServer1_properties_typeProperties_userName": {
 			"value": "will.bachelardbakal@elastacloud.com"
-		},
-		"AzureSqlDatabase1_properties_typeProperties_server": {
-			"value": "wbb-academy-sql-server.database.windows.net"
-		},
-		"AzureSqlDatabase1_properties_typeProperties_database": {
-			"value": "wbb-academy-sql-db"
 		},
 		"containerUri": {
 			"value": ""
