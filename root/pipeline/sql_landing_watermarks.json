@@ -83,7 +83,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT *\nFROM table_with_timestamp\nWHERE timestamp BETWEEN \nCAST('@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' AS DATETIME)  \nAND CAST('@{activity('LookupNewWatermarkActivity').output.firstRow.NewWatermarkvalue}' AS DATETIME)",
+							"value": "SELECT *\nFROM table_with_timestamp\nWHERE timestamp BETWEEN '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' AND '@{activity('LookupNewWatermarkActivity').output.firstRow.NewWatermarkvalue}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "00:06:00",
