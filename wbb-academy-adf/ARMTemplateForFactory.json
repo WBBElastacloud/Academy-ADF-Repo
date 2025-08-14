@@ -428,7 +428,7 @@
 							"source": {
 								"type": "AzureSqlSource",
 								"sqlReaderQuery": {
-									"value": "SELECT *\nFROM table_with_timestamp\nWHERE timestamp > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' AND timestamp <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
+									"value": "SELECT *\nFROM table_with_timestamp\nWHERE timestamp > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' \nAND timestamp <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'",
 									"type": "Expression"
 								},
 								"queryTimeout": "00:06:00",
