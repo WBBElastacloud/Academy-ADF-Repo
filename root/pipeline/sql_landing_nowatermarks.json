@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "LookupIds",
+				"name": "LookupId",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT *\nFROM historicalids",
+						"sqlReaderQuery": "SELECT *\nFROM lastid",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -25,7 +25,7 @@
 						"referenceName": "AzureSqlTable3",
 						"type": "DatasetReference"
 					},
-					"firstRowOnly": false
+					"firstRowOnly": true
 				}
 			},
 			{
@@ -33,7 +33,7 @@
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "LookupIds",
+						"activity": "LookupId",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -51,7 +51,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT *\nFROM table_historical\nWHERE id != '@{activity('LookupIds').output.id}'",
+							"value": "SELECT *\nFROM table_historical\nWHERE id > '@{activity('LookupId').output.firstRow.id}'",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -88,6 +88,73 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "LookupMaxId",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT MAX(id)\nAS MaxId\nFROM table_historical",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable5",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "UpdateLastId",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "LookupMaxId",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "CopyHistorical",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp_write_maxid]",
+					"storedProcedureParameters": {
+						"MaxId": {
+							"value": {
+								"value": "\"value\": \"@{activity('LookupMaxId').output.firstRow.MaxId}\", \"type\": \"int32\" ",
+								"type": "Expression"
+							},
+							"type": "Int32"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
