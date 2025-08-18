@@ -5,14 +5,8 @@
 		"type": "AzureDatabricks",
 		"typeProperties": {
 			"domain": "https://adb-1939547948204021.1.azuredatabricks.net",
-			"accessToken": {
-				"type": "AzureKeyVaultSecret",
-				"store": {
-					"referenceName": "AzureKeyVault1",
-					"type": "LinkedServiceReference"
-				},
-				"secretName": "password-secret"
-			},
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/6d585e6c-d46d-40ce-910a-36d288bbe5a5/resourceGroups/rg-academy/providers/Microsoft.Databricks/workspaces/wbb-academy-workspace",
 			"existingClusterId": "NewYorkTaxiCompute"
 		}
 	}
